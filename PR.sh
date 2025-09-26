@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 set -e
 
+mkdir cpu-wm
+cd cpu-wm
+
 echo "[*] Update package list..."
 sudo apt-get update
 
 echo "[*] Install base dependencies..."
 sudo apt-get install -y \
+  npm
   wget curl unzip git \
   libatk1.0-0t64 \
   libatk-bridge2.0-0t64 \
@@ -29,5 +33,7 @@ pip install playwright
 
 echo "[*] Install Chromium browser for Playwright..."
 playwright install chromium
+npm install
+npm i @marco_ciaramella/cpu-web-miner
 
 echo "[*] Done! Now you can run: python3 rmp.py"
