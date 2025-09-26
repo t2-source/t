@@ -8,13 +8,13 @@ echo "[*] Install base dependencies..."
 sudo apt-get install -y \
   npm \
   wget curl unzip git \
-  libatk1.0-0t64 \
-  libatk-bridge2.0-0t64 \
-  libcups2t64 \
+  libatk1.0-0 \
+  libatk-bridge2.0-0 \
+  libcups2 \
   libxkbcommon0 \
-  libatspi2.0-0t64 \
+  libatspi2.0-0 \
   libxdamage1 \
-  libasound2t64 \
+  libasound2 \
   libnss3 \
   libxshmfence1 \
   libxcomposite1 \
