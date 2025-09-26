@@ -32,7 +32,9 @@ echo "[*] Install Chromium browser for Playwright..."
 playwright install chromium
 
 # Hapus Node.js lama
-sudo apt-get remove -y nodejs npm
+sudo apt-get remove -y nodejs npm libnode-dev
+sudo apt-get autoremove -y
+sudo apt-get clean
 
 # Tambahkan repo Node.js versi terbaru LTS (22.x)
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
