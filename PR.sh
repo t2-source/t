@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-mkdir cpu-wm
-cd cpu-wm
-
 echo "[*] Update package list..."
 sudo apt-get update
 
