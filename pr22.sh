@@ -6,7 +6,6 @@ sudo apt-get update
 
 echo "[*] Install base dependencies..."
 sudo apt-get install -y \
-  npm \
   wget curl unzip git \
   libatk1.0-0 \
   libatk-bridge2.0-0 \
