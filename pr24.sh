@@ -26,6 +26,7 @@ sudo apt-get install -y \
 sudo apt-get remove -y nodejs npm libnode-dev
 sudo apt-get autoremove -y
 sudo apt-get clean
+rm -rf /usr/local/share/nvm/versions/node/v22.17.0/lib/node_modules/.npm-*
 
 # Tambahkan repo Node.js versi terbaru LTS (22.x)
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
