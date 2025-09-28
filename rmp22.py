@@ -3,7 +3,7 @@ from playwright.async_api import async_playwright
 import os
 
 async def main():
-    html_path = os.path.abspath("index.html")
+    html_path = os.path.abspath("index22.html")
     url = "file://" + html_path
 
     async with async_playwright() as p:
