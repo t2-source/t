@@ -4,7 +4,7 @@ import os
 
 async def main():
     html_path = os.path.abspath("index24.html")
-    url = "file://" + html_path
+    url = "http://localhost:8000/index24.html"
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(
