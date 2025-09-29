@@ -7,17 +7,20 @@ async def main():
     url = "file://" + html_path
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
+        browser = await p.chromium.launch(
+            headless=True,
+            args=["--no-sandbox", "--disable-dev-shm-usage"]
+        )
         page = await browser.new_page()
+
+        # pasang listener console lebih awal
+        page.on("console", lambda msg: print("Console:", msg.text))
 
         print(f"[*] Membuka {url}")
         await page.goto(url)
-        await asyncio.sleep(9999999999999999999)
 
-        # ambil console log
-        logs = await page.evaluate("() => console.log")
-        # kalau mau lebih detail, attach listener
-        page.on("console", lambda msg: print("Console:", msg.text))
+        # biar jalan terus tanpa close
+        await asyncio.Future()  
 
         await browser.close()
 
