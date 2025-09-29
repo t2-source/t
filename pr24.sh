@@ -15,5 +15,7 @@ echo "[*] Install Playwright..."
 
 echo "[*] Install Chromium for Playwright..."
 #npx playwright install chromium
+python3 -m playwright install chromium
+
 
 echo "[*] Done! You can now run tests with Playwright."
