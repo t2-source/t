@@ -7,7 +7,7 @@ echo "[*] Update environment untuk NixOS..."
 nix-env -iA nixpkgs.wget nixpkgs.curl nixpkgs.unzip nixpkgs.git \
   nixpkgs.nodejs_20 nixpkgs.python311 nixpkgs.python311Packages.pip \
   nixpkgs.gtk3 nixpkgs.libxkbcommon nixpkgs.nss nixpkgs.mesa \
-  nixpkgs.pango nixpkgs.atk nixpkgs.cups nixpkgs.xorg.libXshmfence \
+  nixpkgs.pango nixpkgs.atk nixpkgs.cups nixpkgs.libxshmfence \
   nixpkgs.libXcomposite nixpkgs.libXrandr nixpkgs.libXdamage \
   nixpkgs.alsa-lib
 
