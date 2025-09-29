@@ -16,7 +16,7 @@ pkgs.mkShell {
     pkgs.python311Packages.pip
     pkgs.python311Packages.playwright
 
-    # Library yang dibutuhkan Chromium / Playwright
+    # Library runtime Chromium / Playwright
     pkgs.gtk3
     pkgs.libxkbcommon
     pkgs.nss
@@ -24,7 +24,6 @@ pkgs.mkShell {
     pkgs.pango
     pkgs.at-spi2-core
     pkgs.cups
-    pkgs.libXshmfence
     pkgs.libXcomposite
     pkgs.libXrandr
     pkgs.libXdamage
@@ -32,6 +31,6 @@ pkgs.mkShell {
   ];
 
   shellHook = ''
-    echo "[*] Environment siap! Sekarang jalankan ./script kamu"
+    echo "[*] Environment siap! Jalankan ./script kamu"
   '';
 }
