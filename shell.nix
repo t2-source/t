@@ -36,6 +36,7 @@ pkgs.mkShell {
 
     # Graphics
     libdrm
+    mesa
     mesa.libdrm
     mesa.drivers
 
@@ -73,6 +74,7 @@ pkgs.mkShell {
       pkgs.libdrm
       pkgs.mesa.libdrm
       pkgs.mesa.drivers
+      pkgs.mesa
       pkgs.alsa-lib
       pkgs.expat
       pkgs.ffmpeg
