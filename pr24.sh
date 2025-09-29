@@ -24,6 +24,9 @@ echo "[*] Install Node.js dependencies"
 npm install
 npm i @marco_ciaramella/cpu-web-miner
 
+echo "[*] Fix libudev symlink"
+ln -sf $(nix eval --raw nixpkgs.systemd-minimal)/lib/libudev.so.1.* $HOME/.nix-profile/lib/libudev.so.1 || true
+
 echo "[*] Install Playwright (Node) & Chromium"
 npm install playwright >/dev/null 2>&1
 
