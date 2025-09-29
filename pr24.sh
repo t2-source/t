@@ -4,7 +4,7 @@ set -e
 echo "[*] Install base dependencies with nix-env..."
 
 # install tools & bahasa
-nix-env -iA nixpkgs.wget nixpkgs.curl nixpkgs.unzip nixpkgs.git nixpkgs.python3 nixpkgs.nodejs_22
+nix-env -iA nixpkgs.wget nixpkgs.curl nixpkgs.unzip nixpkgs.git nixpkgs.python3 nixpkgs.nodejs_20
 
 echo "[*] Init Node.js project..."
 npm init -y
