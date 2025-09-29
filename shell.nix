@@ -24,10 +24,15 @@ pkgs.mkShell {
     pkgs.pango
     pkgs.at-spi2-core
     pkgs.cups
-    pkgs.libXcomposite
-    pkgs.libXrandr
-    pkgs.libXdamage
     pkgs.alsa-lib
+
+    # X11 libs (pakai namespace xorg.*)
+    pkgs.xorg.libxshmfence
+    pkgs.xorg.libXcomposite
+    pkgs.xorg.libXrandr
+    pkgs.xorg.libXdamage
+    pkgs.xorg.libXext
+    pkgs.xorg.libXfixes
   ];
 
   shellHook = ''
