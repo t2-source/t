@@ -34,7 +34,7 @@ pkgs.mkShell {
     nspr
 
     # Graphics / GBM
-    libdrm
+    mesa
     mesa.libgbm
 
     # Audio
