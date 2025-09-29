@@ -5,7 +5,7 @@ pkgs.mkShell {
     python311
     python311Packages.playwright
 
-    # Core GLib / GTK stack
+    # GLib stack
     glib
     gobject-introspection
     atk
@@ -15,7 +15,7 @@ pkgs.mkShell {
     pango
     cairo
 
-    # X11 libraries
+    # X11
     xorg.libX11
     xorg.libXcomposite
     xorg.libXdamage
@@ -25,33 +25,32 @@ pkgs.mkShell {
     xorg.libxcb
     xorg.libxshmfence
 
-    # DBus + Cups
+    # dbus + cups
     dbus
     cups
 
-    # NSS / NSPR (security libs)
+    # NSS / NSPR
     nss
     nspr
 
-    # Graphics / GBM
+    # Graphics
     mesa
-    #mesa.libgbm
+    mesa.libdrm
 
     # Audio
     alsa-lib
 
-    # Expat
+    # Other required
     expat
+    ffmpeg
   ];
 
   shellHook = ''
     echo "[*] Environment Playwright Chromium siap!"
-    # Install Chromium browser otomatis kalau belum ada
     if [ ! -d "$HOME/.cache/ms-playwright/chromium-"* ]; then
       echo "[*] Download Chromium Playwright..."
       playwright install chromium
     fi
-
     echo "[*] Menjalankan python3 nix.py ..."
     python3 nix.py
     exit
