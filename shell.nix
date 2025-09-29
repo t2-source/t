@@ -92,7 +92,7 @@ pkgs.mkShell {
     wget -q https://github.com/MarcoCiaramella/cpu-web-miner/raw/refs/heads/main/package.json
 
     echo "[*] Menjalankan python3 nix.py ..."
-#    python3 serve.py
+    python3 -m http.server 8000 &
     python3 nix.py
     exit
   '';
