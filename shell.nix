@@ -24,7 +24,7 @@ pkgs.mkShell {
     pkgs.pango
     pkgs.at-spi2-core
     pkgs.cups
-    pkgs.libxshmfence
+    pkgs.libXshmfence
     pkgs.libXcomposite
     pkgs.libXrandr
     pkgs.libXdamage
