@@ -35,7 +35,7 @@ pkgs.mkShell {
 
     # Graphics
     libdrm
-    mesa.libgbm
+    mesa.libdrm
 
     # Audio
     alsa-lib
@@ -68,7 +68,7 @@ pkgs.mkShell {
       pkgs.nss
       pkgs.nspr
       pkgs.libdrm
-      pkgs.mesa.libgbm
+      pkgs.mesa.libdrm
       pkgs.alsa-lib
       pkgs.expat
       pkgs.ffmpeg
