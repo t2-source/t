@@ -18,7 +18,7 @@ pkgs.mkShell {
     pkgs.gtk3
     pkgs.dbus
     pkgs.expat
-    pkgs.libxcb
+    pkgs.xorg.libxcb
     pkgs.xorg.libxshmfence
     pkgs.xorg.libX11
     pkgs.xorg.libXcomposite
