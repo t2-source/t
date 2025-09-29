@@ -17,6 +17,6 @@ async def main():
         await page.goto(url, wait_until="domcontentloaded")
 
         # biar proses tetap hidup, nangkep log
-        await asyncio.sleep(999999)
+        await asyncio.sleep(9999999999999999)
 
 asyncio.run(main())
