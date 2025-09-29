@@ -8,7 +8,7 @@ nix-env -iA nixpkgs.wget nixpkgs.curl nixpkgs.unzip nixpkgs.git \
   nixpkgs.nodejs_20 nixpkgs.python311 nixpkgs.python311Packages.pip \
   nixpkgs.gtk3 nixpkgs.libxkbcommon nixpkgs.nss nixpkgs.mesa \
   nixpkgs.pango nixpkgs.atk nixpkgs.cups nixpkgs.xorg.libxshmfence \
-  nixpkgs.libXcomposite nixpkgs.libXrandr nixpkgs.libXdamage \
+  nixpkgs.xorg.libxcomposite nixpkgs.xorg.libxrandr nixpkgs.xorg.libxdamage \
   nixpkgs.alsa-lib
 
 # Upgrade pip & install Playwright
