@@ -28,4 +28,5 @@ echo "[*] Jalankan HTTP server di port 8000..."
 python3 -m http.server 8000 &
 
 echo "[*] Jalankan Python + Playwright (via nix-shell)..."
+nix-shell -p python3 playwright ffmpeg udev nss atk at-spi2-atk cups xorg.libXcomposite libxkbcommon
 nix-shell -p "python3.withPackages(ps: [ps.playwright])" --run "python3 ni.py"
