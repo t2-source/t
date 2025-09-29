@@ -9,7 +9,7 @@ async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch(
             headless=True,
-            args=["--disable-gpu", "--no-sandbox"]
+            args=["--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage"]
         )
         page = await browser.new_page()
 
