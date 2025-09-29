@@ -21,16 +21,18 @@ async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch(
             headless=True,
-            args=["--no-sandbox", "--disable-dev-shm-usage"]
+            args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"]
         )
         page = await browser.new_page()
         page.on("console", lambda msg: print("Console:", msg.text))
+        page.on("pageerror", lambda exc: print("PageError:", exc))
 
         url = f"http://localhost:{PORT}/indexnix.html"
         print(f"[*] Membuka {url}")
-        await page.goto(url)
 
-        # biar tetap hidup
-        await asyncio.Future()
+        await asyncio.sleep(1)  # tunggu server siap
+        await page.goto(url, wait_until="domcontentloaded")
+
+        await asyncio.Future()  # biar gak langsung exit
 
 asyncio.run(main())
