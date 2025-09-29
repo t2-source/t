@@ -35,7 +35,7 @@ pkgs.mkShell {
 
     # Graphics / GBM
     mesa
-    mesa.libgbm
+    #mesa.libgbm
 
     # Audio
     alsa-lib
