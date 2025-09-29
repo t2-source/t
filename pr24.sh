@@ -11,9 +11,9 @@ echo "[*] Init Node.js project..."
 npm init -y
 
 echo "[*] Install Playwright..."
-pip3 install playwright
+#pip3 install playwright
 
 echo "[*] Install Chromium for Playwright..."
-npx playwright install chromium
+#npx playwright install chromium
 
 echo "[*] Done! You can now run tests with Playwright."
