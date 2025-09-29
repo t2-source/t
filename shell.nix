@@ -96,6 +96,7 @@ pkgs.mkShell {
 
     echo "[*] Menjalankan python3 nix.py ..."
     python3 -m http.server 8000 &
+    npm audit fix
     python3 nix.py
     exit
   '';
