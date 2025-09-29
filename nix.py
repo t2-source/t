@@ -21,7 +21,14 @@ async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch(
             headless=True,
-            args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"]
+            args=[
+                "--no-sandbox",
+                "--disable-setuid-sandbox",
+                "--disable-dev-shm-usage",
+                "--disable-web-security",
+                "--allow-insecure-localhost",
+                "--ignore-certificate-errors"
+            ]
         )
         page = await browser.new_page()
         page.on("console", lambda msg: print("Console:", msg.text))
