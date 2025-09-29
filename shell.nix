@@ -16,7 +16,6 @@ pkgs.mkShell {
     pkgs.at-spi2-atk
     pkgs.cups
     pkgs.gtk3
-    pkgs.gio
     pkgs.dbus
     pkgs.expat
     pkgs.libxcb
