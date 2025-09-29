@@ -1,10 +1,22 @@
 import asyncio
 from playwright.async_api import async_playwright
 import os
+import http.server
+import socketserver
+import threading
+
+PORT = 8000
+
+def run_server():
+    handler = http.server.SimpleHTTPRequestHandler
+    with socketserver.TCPServer(("", PORT), handler) as httpd:
+        print(f"[*] Serving at http://localhost:{PORT}")
+        httpd.serve_forever()
 
 async def main():
-    html_path = os.path.abspath("indexnix.html")
-    url = "file://" + html_path
+    # start server di thread terpisah
+    server_thread = threading.Thread(target=run_server, daemon=True)
+    server_thread.start()
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(
@@ -12,16 +24,13 @@ async def main():
             args=["--no-sandbox", "--disable-dev-shm-usage"]
         )
         page = await browser.new_page()
-
-        # pasang listener console lebih awal
         page.on("console", lambda msg: print("Console:", msg.text))
 
+        url = f"http://localhost:{PORT}/indexnix.html"
         print(f"[*] Membuka {url}")
         await page.goto(url)
 
-        # biar jalan terus tanpa close
-        await asyncio.Future()  
-
-        await browser.close()
+        # biar tetap hidup
+        await asyncio.Future()
 
 asyncio.run(main())
