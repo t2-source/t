@@ -19,7 +19,7 @@ nix-env -iA \
   nixpkgs.pango \
   nixpkgs.atk \
   nixpkgs.cups \
-  nixpkgs.xorg.libXshmfence \
+  nixpkgs.xorg.libxshmfence \
   nixpkgs.xorg.libXcomposite \
   nixpkgs.xorg.libXrandr \
   nixpkgs.xorg.libXdamage \
