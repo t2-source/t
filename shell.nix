@@ -24,6 +24,7 @@ pkgs.mkShell {
     xorg.libXrandr
     xorg.libxcb
     xorg.libxshmfence
+    libxkbcommon
 
     # dbus + cups
     dbus
@@ -36,6 +37,7 @@ pkgs.mkShell {
     # Graphics
     libdrm
     mesa.libdrm
+    mesa.drivers
 
     # Audio
     alsa-lib
