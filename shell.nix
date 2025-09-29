@@ -65,12 +65,14 @@ pkgs.mkShell {
       pkgs.xorg.libXrandr
       pkgs.xorg.libxcb
       pkgs.xorg.libxshmfence
+      pkgs.libxkbcommon
       pkgs.dbus
       pkgs.cups
       pkgs.nss
       pkgs.nspr
       pkgs.libdrm
       pkgs.mesa.libdrm
+      pkgs.mesa.drivers
       pkgs.alsa-lib
       pkgs.expat
       pkgs.ffmpeg
