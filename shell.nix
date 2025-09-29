@@ -28,7 +28,7 @@ pkgs.mkShell {
     pkgs.xorg.libXrandr
     pkgs.libxkbcommon
     pkgs.libdrm
-    pkgs.libgbm
+    pkgs.mesa.drivers
     pkgs.pango
     pkgs.cairo
     pkgs.alsaLib
