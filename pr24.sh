@@ -22,6 +22,7 @@ echo "[*] Install Playwright (Node)..."
 npm install playwright >/dev/null 2>&1
 
 echo "[*] Install Chromium (Playwright)..."
+nix-shell -p python3 playwright ffmpeg udev nss atk at-spi2-atk cups xorg.libXcomposite libxkbcommon
 npx playwright install chromium
 
 echo "[*] Jalankan HTTP server di port 8000..."
