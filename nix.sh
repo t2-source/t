@@ -5,7 +5,7 @@ echo "[*] Update environment untuk NixOS..."
 
 # Install dependency dasar
 nix-env -iA nixpkgs.wget nixpkgs.curl nixpkgs.unzip nixpkgs.git \
-  nixpkgs.nodejs_20 nixpkgs.python311 nixpkgs.python311Full nixpkgs.python311Packages.pip \
+  nixpkgs.nodejs_20 nixpkgs.python311Full \
   nixpkgs.gtk3 nixpkgs.libxkbcommon nixpkgs.nss nixpkgs.mesa \
   nixpkgs.pango nixpkgs.atk nixpkgs.cups nixpkgs.xorg.libxshmfence \
   nixpkgs.xorg.libXcomposite nixpkgs.xorg.libXrandr nixpkgs.xorg.libXdamage \
