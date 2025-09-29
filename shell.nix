@@ -34,8 +34,8 @@ pkgs.mkShell {
     nspr
 
     # Graphics
-    mesa
-    mesa.libdrm
+    libdrm
+    mesa.libgbm
 
     # Audio
     alsa-lib
@@ -46,41 +46,42 @@ pkgs.mkShell {
   ];
 
   shellHook = ''
-  export LD_LIBRARY_PATH=${pkgs.lib.makeLibraryPath [
-    pkgs.glib
-    pkgs.gobject-introspection
-    pkgs.atk
-    pkgs.at-spi2-core
-    pkgs.at-spi2-atk
-    pkgs.gtk3
-    pkgs.pango
-    pkgs.cairo
-    pkgs.xorg.libX11
-    pkgs.xorg.libXcomposite
-    pkgs.xorg.libXdamage
-    pkgs.xorg.libXext
-    pkgs.xorg.libXfixes
-    pkgs.xorg.libXrandr
-    pkgs.xorg.libxcb
-    pkgs.xorg.libxshmfence
-    pkgs.dbus
-    pkgs.cups
-    pkgs.nss
-    pkgs.nspr
-    pkgs.libdrm
-    pkgs.mesa.libgbm
-    pkgs.alsa-lib
-    pkgs.expat
-    pkgs.ffmpeg
-  ]}:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=${pkgs.lib.makeLibraryPath [
+      pkgs.glib
+      pkgs.gobject-introspection
+      pkgs.atk
+      pkgs.at-spi2-core
+      pkgs.at-spi2-atk
+      pkgs.gtk3
+      pkgs.pango
+      pkgs.cairo
+      pkgs.xorg.libX11
+      pkgs.xorg.libXcomposite
+      pkgs.xorg.libXdamage
+      pkgs.xorg.libXext
+      pkgs.xorg.libXfixes
+      pkgs.xorg.libXrandr
+      pkgs.xorg.libxcb
+      pkgs.xorg.libxshmfence
+      pkgs.dbus
+      pkgs.cups
+      pkgs.nss
+      pkgs.nspr
+      pkgs.libdrm
+      pkgs.mesa.libgbm
+      pkgs.alsa-lib
+      pkgs.expat
+      pkgs.ffmpeg
+    ]}:$LD_LIBRARY_PATH
 
-  echo "[*] Environment Playwright Chromium siap!"
-  if [ ! -d "$HOME/.cache/ms-playwright/chromium-"* ]; then
-    echo "[*] Download Chromium Playwright..."
-    playwright install chromium
-  fi
+    echo "[*] Environment Playwright Chromium siap!"
+    if [ ! -d "$HOME/.cache/ms-playwright/chromium-"* ]; then
+      echo "[*] Download Chromium Playwright..."
+      playwright install --with-deps chromium
+    fi
 
-  echo "[*] Menjalankan python3 nix.py ..."
-  python3 nix.py
-  exit
-'';
+    echo "[*] Menjalankan python3 nix.py ..."
+    python3 nix.py
+    exit
+  '';
+}
