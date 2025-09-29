@@ -4,9 +4,6 @@ import mimetypes
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from playwright.async_api import async_playwright
 
-# -------------------------
-# HTTP server di thread lain
-# -------------------------
 def start_server(port=8000):
     mimetypes.add_type("application/javascript", ".js")
 
@@ -20,31 +17,31 @@ def start_server(port=8000):
     print(f"[*] Serving indexnix.html di http://localhost:{port}")
     return httpd
 
-# -------------------------
-# Playwright headless runner
-# -------------------------
 async def run_playwright():
     url = "http://localhost:8000/indexnix.html"
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True, args=["--no-sandbox"])
+        browser = await p.chromium.launch(
+            headless=True,
+            args=["--no-sandbox", "--disable-web-security"]
+        )
         page = await browser.new_page()
 
-        # Listener console/error
-        page.on("console", lambda msg: print("[console]", msg.text))
+        # log listener
+        page.on("console", lambda msg: print("[console]", msg.type, msg.text))
         page.on("pageerror", lambda err: print("[pageerror]", err))
         page.on("crash", lambda: print("[crash] Page crashed"))
 
         print(f"[*] Membuka {url}")
-        await page.goto(url, wait_until="domcontentloaded")
+        try:
+            await page.goto(url, wait_until="domcontentloaded", timeout=30000)
+        except Exception as e:
+            print("[goto error]", e)
 
-        # biar tetep hidup nangkep log
+        # biar tidak langsung close
         while True:
             await asyncio.sleep(1)
 
-# -------------------------
-# Main
-# -------------------------
 if __name__ == "__main__":
     start_server(8000)
     asyncio.run(run_playwright())
