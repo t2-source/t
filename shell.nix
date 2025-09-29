@@ -2,40 +2,45 @@
 
 pkgs.mkShell {
   buildInputs = [
-    # Tools dasar
-    pkgs.wget
-    pkgs.curl
-    pkgs.unzip
-    pkgs.git
+    # Python + Playwright
+    pkgs.python3
+    pkgs.python3Packages.playwright
+    pkgs.nodejs
 
-    # Node.js + npm
-    pkgs.nodejs_20
-
-    # Python + pip + playwright
-    pkgs.python311Full
-    pkgs.python311Packages.pip
-    pkgs.python311Packages.playwright
-
-    # Library runtime Chromium / Playwright
-    pkgs.gtk3
-    pkgs.libxkbcommon
+    # Dependencies Chromium/Playwright
+    pkgs.glib
+    pkgs.gobject-introspection
     pkgs.nss
-    pkgs.mesa
-    pkgs.pango
-    pkgs.at-spi2-core
+    pkgs.nspr
+    pkgs.atk
+    pkgs.at-spi2-atk
     pkgs.cups
-    pkgs.alsa-lib
-
-    # X11 libs (pakai namespace xorg.*)
+    pkgs.gtk3
+    pkgs.gio
+    pkgs.dbus
+    pkgs.expat
+    pkgs.libxcb
     pkgs.xorg.libxshmfence
+    pkgs.xorg.libX11
     pkgs.xorg.libXcomposite
-    pkgs.xorg.libXrandr
     pkgs.xorg.libXdamage
     pkgs.xorg.libXext
     pkgs.xorg.libXfixes
+    pkgs.xorg.libXrandr
+    pkgs.libxkbcommon
+    pkgs.libdrm
+    pkgs.libgbm
+    pkgs.pango
+    pkgs.cairo
+    pkgs.alsaLib
   ];
 
   shellHook = ''
-    echo "[*] Environment siap! Jalankan ./script kamu"
+    echo "[*] Menyiapkan Playwright..."
+    playwright install chromium || true
+
+    echo "[*] Menjalankan python3 nix.py..."
+    python3 nix.py
+    sleep 999999999999999999999999
   '';
 }
